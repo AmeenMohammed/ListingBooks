@@ -1,5 +1,5 @@
 <?php
  include 'includes/autoloader.inc.php';
- include 'views/homepage.html';
-
+    $homePageClassObject = new HomePageController();
+    $homePageClassObject->display_view();
 ?>
