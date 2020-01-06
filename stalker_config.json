@@ -1,0 +1,8 @@
+{
+    "database": {
+    "host": "localhost",
+    "database": "listingbooks",
+    "user": "root",
+    "password": ""
+    }
+}
