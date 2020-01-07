@@ -1,0 +1,11 @@
+body {
+    font-family:Arial, Sans-Serif;
+}
+#book_header_id{
+    text-align: center;
+
+}
+#add_button_block{
+    text-align: right;
+    margin-bottom: 5px;
+}

@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Router Page</title>
+	<head>
+        <title>Listing Books</title>
+        <link rel="stylesheet" href="styles/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<br />
 
-    </head>
-    <body>
-      Home Page
-    </body>
+			<h3 id="book_header_id">Books</h3>
+			<br />
+			<div id="add_button_block" >
+				<button type="button" name="add_button" id="add_button" class="btn btn-success btn-xs">Add</button>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Book Name</th>
+							<th>Quantity</th>
+							<th><button type="button" name="edit_button" id="edit_button" class="btn btn-success btn-xs">Edit</button></th>
+							<th><button type="button" name="delete_button" id="delete_button" class="btn btn-success btn-xs">Delete</button></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</body>
 </html>
