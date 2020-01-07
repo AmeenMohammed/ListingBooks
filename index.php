@@ -26,13 +26,13 @@
     $router->group("/ListingBooks", function($router){
 
         $router->get('/',[new HomePageController(), 'display_view']);
+        $router->get('/add',[new AddPageController(), 'display_view']);
         $router->get('/edit',[new EditPageController(), 'display_view']);
         $router->get('/request',[new RequestPageController(), 'display_view']);
 
     });
     $router->group("/ListingBooks/api", function($router){
         $router->get('/books',['HomePageController', 'display_books']);
-        $router->get('/add',[new AddPageController(), 'display_view']);
     });
     $router->fallback(function(){
 

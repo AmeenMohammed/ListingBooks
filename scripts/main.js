@@ -18,9 +18,7 @@ $(document).ready(function(){
     });
 
     $("#add_button").click(function(){
-        $.get(baseURL + "/api/add",{},function(){},).done(function(response){
-            $('html').html(response);
-        });
+        window.location.href= baseURL + "/add";
     });
 
 });
