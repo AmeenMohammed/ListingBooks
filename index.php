@@ -32,6 +32,7 @@
     });
     $router->group("/ListingBooks/api", function($router){
         $router->get('/books',['HomePageController', 'display_books']);
+        $router->get('/add',[new AddPageController(), 'display_view']);
     });
     $router->fallback(function(){
 

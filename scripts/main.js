@@ -17,4 +17,10 @@ $(document).ready(function(){
         $("#books_list").html(html);
     });
 
+    $("#add_button").click(function(){
+        $.get(baseURL + "/api/add",{},function(){},).done(function(response){
+            $('html').html(response);
+        });
+    });
+
 });
