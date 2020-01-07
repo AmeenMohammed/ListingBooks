@@ -21,13 +21,6 @@
     if(Stalker_Migrator::need_migration()){
         Stalker_Migrator::migrate();
     }
-  /*  $book = new Books();
-    $book->name = "The Alchemist";
-    $book->quantity = 50;
-    $book->save();
-    $book->name = "The light away";
-    $book->quantity = 50;
-    $book->save();*/
 
     $router = new miniRouter();
     $router->group("/ListingBooks", function($router){
@@ -36,6 +29,9 @@
         $router->get('/edit',[new EditPageController(), 'display_view']);
         $router->get('/request',[new RequestPageController(), 'display_view']);
 
+    });
+    $router->group("/ListingBooks/api", function($router){
+        $router->get('/books',['HomePageController', 'display_books']);
     });
     $router->fallback(function(){
 
