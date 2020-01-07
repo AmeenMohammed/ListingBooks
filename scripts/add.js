@@ -1,7 +1,7 @@
 $(document).ready(function(){
+    baseURL = window.location.protocol + "//" + window.location.host + "/ListingBooks";
 
-    $("#quantity_err").html("");
-    $("#book_err").html("");
+
     $("#insert").click(function(){
         var bookName = $("#book_id").val();
         var quantity = $("#quantity_id").val();
@@ -29,6 +29,33 @@ $(document).ready(function(){
                 $("#quantity_err").html("");
                 flag = false;
             }
+        }
+
+        if(flag == false){
+            $("#quantity_err").html("");
+            $("#book_err").html("");
+            console.log("in if stat!");
+            $.post(baseURL + "/api/insert",{insert: 1, bookName: bookName, quantity: quantity},
+            function(){}, "json").
+            done(function(response){
+                console.log(response);
+                if(response.status == 'success'){
+                    window.location.href="login.php";
+                }else{
+                    for (var key in response[0]) {
+                        if (response[0].hasOwnProperty(key)) {
+                            if(key == 'empty_book' || key == 'valid_book' || key =='exist'){
+                                $("#book_err").html(response[0][key]);
+                            }
+                            if(key == 'empty_quantity' || key == 'valid_quantity'){
+                                $("#quantity_err").html(response[0][key]);
+
+                            }
+                        }
+                    }
+                }
+                console.log("in");
+            });
         }
     });
 });

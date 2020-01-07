@@ -33,6 +33,7 @@
     });
     $router->group("/ListingBooks/api", function($router){
         $router->get('/books',['HomePageController', 'display_books']);
+        $router->post('/insert',[new AddPageController(), 'insert_book']);
     });
     $router->fallback(function(){
 
