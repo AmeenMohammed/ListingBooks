@@ -55,6 +55,9 @@ $(document).ready(function(){
         console.log("clicked!");
         var id = $(this).attr('id');
         window.location.href= baseURL + "/edit/" + id;
-	});
+    });
+    $("#request_button").click(function(){
+        window.location.href= baseURL + "/request";
+    });
 
 });
