@@ -28,17 +28,17 @@ crossorigin="anonymous"></script>
       <input type="text" placeholder="Name" id="name_id" />
       <span id="name_err"></span>
   </div>
-  <div class="form">
-  <select id="books">
+  <div class="form" id="selects">
+  <select id="books" class="select_stlye">
   </select>
+  <div class ="input_row">
+    <input type="text" placeholder="Quantity" id="quantity_id" />
+    <span id="quantity_err"></span>
+</div>
  </div>
  <div class="btn-group" id="form">
-    <button type="button" class="btn btn-primary">+</button>
-    <button type="button" class="btn btn-primary">-</button>
-  </div>
-  <div class ="input_row">
-      <input type="text" placeholder="Quantity" id="quantity_id" />
-      <span id="quantity_err"></span>
+    <button type="button" class="btn btn-primary" id="add_select">+</button>
+    <button type="button" class="btn btn-primary" id="delete_select">-</button>
   </div>
   </form>
   <input type="button" value="Request" id="request" />
