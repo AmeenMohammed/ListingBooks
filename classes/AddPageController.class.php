@@ -6,6 +6,7 @@
         }
         public function insert_book(){
             $error = array();
+            $bookName = $_POST['bookName'];
             if(isset($_POST['insert'])){
                 if (empty($_POST['bookName'])) {
                     $error['empty_book'] = 'Please Enter book name!';
@@ -24,7 +25,7 @@
                     }
                 }
                 if(empty($error)){
-                   /* if(){
+                   if(!($this->check_book_exist($bookName))){
                         $add_book = new Books();
                         $add_book->name = $bookName;
                         $add_book->quantity = $quantity;
@@ -33,7 +34,7 @@
                         echo json_encode(array('status'=> 'success'));
                     }else{
                        echo json_encode(array('status' => 'error', array('exist'=>'Book already exists!')));
-                    }*/
+                    }
                 }else{
                     echo json_encode(array('status'=> 'error', $error));
                 }
@@ -41,5 +42,17 @@
             }
 
         }
+        public function check_book_exist($bookName){
+            $flag = false;
+            $array = json_decode(json_encode(Books::select('name')->fetch()));
+            for ($i = 0; $i < count($array); $i++) {
+                if(($array[$i]->name) == $bookName){
+                    $flag = true;
+                     break;
+                }
+            }
+            return $flag;
+        }
+
     }
 ?>

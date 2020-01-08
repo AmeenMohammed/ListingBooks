@@ -38,9 +38,8 @@ $(document).ready(function(){
             $.post(baseURL + "/api/insert",{insert: 1, bookName: bookName, quantity: quantity},
             function(){}, "json").
             done(function(response){
-                console.log(response);
                 if(response.status == 'success'){
-                    window.location.href="login.php";
+                    window.location.href= baseURL + "/";
                 }else{
                     for (var key in response[0]) {
                         if (response[0].hasOwnProperty(key)) {
@@ -54,7 +53,6 @@ $(document).ready(function(){
                         }
                     }
                 }
-                console.log("in");
             });
         }
     });
