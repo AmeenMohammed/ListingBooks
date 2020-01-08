@@ -36,6 +36,7 @@
         $router->get('/fields',[new HomePageController(), 'get_fields']);
         $router->post('/insert',[new AddPageController(), 'insert_book']);
         $router->delete('/delete',[new HomePageController(), 'delete_item']);
+        $router->put('/update',[new EditPageController(), 'update_item']);
     });
     $router->fallback(function(){
 

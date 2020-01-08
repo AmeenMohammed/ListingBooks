@@ -32,7 +32,7 @@ $(document).ready(function(){
 				url:baseURL + "/api/delete",
                 method: 'DELETE',
                 dataType: 'json',
-				data:{delete: 1, id:id},
+                data:{delete: 1, id:id},
 				success:function(response){
                     console.log("done!");
                     console.log(response);
