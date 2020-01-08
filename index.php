@@ -34,6 +34,7 @@
     $router->group("/ListingBooks/api", function($router){
         $router->get('/books',['HomePageController', 'display_books']);
         $router->post('/insert',[new AddPageController(), 'insert_book']);
+        $router->delete('/delete',[new HomePageController(), 'delete_item']);
     });
     $router->fallback(function(){
 

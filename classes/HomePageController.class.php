@@ -11,6 +11,18 @@
             }
             exit();
         }
+        public function delete_item(){
+            if(isset($_REQUEST['delete'])){
+                $id = $_REQUEST['id'];
+                $book = Books::get($id);
+                if($book->delete()){
+                    echo json_encode(array('status' => 'success'));
+                }else{
+                    echo json_encode(array('status' => 'error'));
+                }
+            }
+            exit();
+        }
 
     }
 ?>
