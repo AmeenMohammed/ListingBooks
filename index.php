@@ -27,12 +27,13 @@
 
         $router->get('/',[new HomePageController(), 'display_view']);
         $router->get('/add',[new AddPageController(), 'display_view']);
-        $router->get('/edit',[new EditPageController(), 'display_view']);
+        $router->get('/edit/{:i}/',[new EditPageController(), 'display_view']);
         $router->get('/request',[new RequestPageController(), 'display_view']);
 
     });
     $router->group("/ListingBooks/api", function($router){
         $router->get('/books',['HomePageController', 'display_books']);
+        $router->get('/fields',[new HomePageController(), 'get_fields']);
         $router->post('/insert',[new AddPageController(), 'insert_book']);
         $router->delete('/delete',[new HomePageController(), 'delete_item']);
     });

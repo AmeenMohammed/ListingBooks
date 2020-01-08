@@ -23,6 +23,15 @@
             }
             exit();
         }
+        public function get_fields(){
+            if(isset($_GET['field'])){
+                $id = $_GET['id'];
+                $book = Books::get($id);
+                echo json_encode(array('status' => 'success',
+                 array('name' => $book->name, 'quantity' => $book->quantity)));
+            }
+            exit();
+        }
 
     }
 ?>

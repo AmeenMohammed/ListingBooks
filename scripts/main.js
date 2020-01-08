@@ -49,17 +49,12 @@ $(document).ready(function(){
 				}
 			});
 
+    });
+    $(document).on('click', '.edit', function(){
+        window.location.href= baseURL + "/edit";
+        console.log("clicked!");
+        var id = $(this).attr('id');
+        window.location.href= baseURL + "/edit/" + id;
 	});
 
 });
-/*$.ajax({
-    method: "PUT",
-    url: baseURL + '/api/ping-pong',
-    dataType: 'text',
-    data: {
-      move: moveType
-    },
-    success: function(result){
-      alert(result)
-    }
-  });*/
