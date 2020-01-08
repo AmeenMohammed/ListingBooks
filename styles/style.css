@@ -9,11 +9,11 @@ body {
     text-align: right;
     margin-bottom: 5px;
 }
-.form{
+.form, #form{
     width: 300px;
     margin: 0 auto;
 }
-input[type='text']{
+input[type='text'], #books{
     width: 200px;
     border-radius: 2px;
     border: 1px solid #CCC;
