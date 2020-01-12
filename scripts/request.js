@@ -1,7 +1,7 @@
 $(document).ready(function () {
         baseURL = window.location.protocol + "//" + window.location.host + "/ListingBooks";
         var booksList = [], markup, j = 1;
-        var selected = [], unselected = [], selectedChange =[];
+        var selected = [], unselected = [];
 
         $.get(baseURL + "/api/books", {
             request: 1
@@ -60,5 +60,41 @@ $(document).ready(function () {
                 });
 
       });
+      $('#request_books').on('click', function(e){
+        var submitted_book_ids = [], submitted_book_quantities = [], name, flag = false;
+        for(var i = 0; i < j; i++){
+            submitted_book_ids[i] = (Number($(`#book-${i} select.book`).find('option:selected').val()));
+            submitted_book_quantities[i] = $(`#book-${i} #quantity_id`).val();
+            if(submitted_book_quantities[i] == ""){
+                $(`#book-${i} #quantity_err`).html("Pls enter a quantity!");
+                flag = true;
+            }else{
+                if(!(/^[0-9]{1,10}$/).test(submitted_book_quantities[i])){
+                    $(`#book-${i} #quantity_err`).html("Pls enter a valid quantity!");
+                    flag = true;
+                }else{
+                    $(`#book-${i} #quantity_err`).html("");
+                    flag = false;
+                }
+            }
 
+        }
+        name = $("#name_id").val();
+        if(name == ""){
+            $("#name_err").html("Pls enter ur name!");
+            flag = true;
+        }else{
+            if(!(/^[A-Za-z][A-Za-z0-9\\,\\-\\ ]{5,35}$/).test(name)){
+                $("#name_err").html("Pls enter a valid user name!");
+                flag = true;
+            }else{
+                $("#name_err").html("");
+                flag = false;
+            }
+        }
+        if(flag == false){
+
+        }
+
+    });
 });

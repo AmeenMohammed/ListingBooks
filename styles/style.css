@@ -22,7 +22,7 @@ input[type='text'], .select_stlye,.input_stlye{
     font-size: 14px;
     margin-top: 10px;
 }
-input[type='button']{
+input[type='button'], input[type='submit']{
     padding: 10px 25px 8px;
     color: #fff;
     background-color: #0067ab;
