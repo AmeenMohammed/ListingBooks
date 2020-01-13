@@ -60,7 +60,8 @@ $(document).ready(function () {
                 });
 
       });
-      $('#request_books').on('click', function(e){
+      $('form').on('submit', function(e){
+          e.preventDefault();
         var submitted_book_ids = [], submitted_book_quantities = [], name, flag = false;
         for(var i = 0; i < j; i++){
             submitted_book_ids[i] = (Number($(`#book-${i} select.book`).find('option:selected').val()));
@@ -93,7 +94,14 @@ $(document).ready(function () {
             }
         }
         if(flag == false){
-
+            $("#quantity_err").html("");
+            $("#name_err").html("");
+            $.post(baseURL + "/api/request",{request: 1,
+                 quantities: submitted_book_quantities, books: submitted_book_ids, name: name},
+            function(){}).
+            done(function(response){
+                console.log(response);
+            });
         }
 
     });

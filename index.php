@@ -30,14 +30,18 @@
         $router->get('/edit/{:i}/',[new EditPageController(), 'display_view']);
         $router->get('/request',[new RequestPageController(), 'display_view']);
 
+        $router->group("/api", function($router){
+            $router->get('/books',['HomePageController', 'display_books']);
+            $router->get('/fields',[new HomePageController(), 'get_fields']);
+            $router->post('/insert',[new AddPageController(), 'insert_book']);
+            $router->delete('/delete',[new HomePageController(), 'delete_item']);
+            $router->put('/update',[new EditPageController(), 'update_item']);
+            $router->post('/request',[new RequestPageController(), 'request_books']);
+
+        });
+
     });
-    $router->group("/ListingBooks/api", function($router){
-        $router->get('/books',['HomePageController', 'display_books']);
-        $router->get('/fields',[new HomePageController(), 'get_fields']);
-        $router->post('/insert',[new AddPageController(), 'insert_book']);
-        $router->delete('/delete',[new HomePageController(), 'delete_item']);
-        $router->put('/update',[new EditPageController(), 'update_item']);
-    });
+
     $router->fallback(function(){
 
         echo "Page Not Found";
