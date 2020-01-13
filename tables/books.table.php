@@ -7,8 +7,6 @@
                 $table->int("quantity", 11);
             });
         }
-        public function persons() {
-            return $this->has_many_through("Persons", "Orders", "person_id", "book_id");
-        }
+
     }
 ?>

@@ -48,7 +48,7 @@ $(document).ready(function () {
         $(document).on( "change", '#selects select.book', function() {
             for(var i = 0; i < j; i++){
                 selected[i] = (Number($(`#book-${i} select.book`).find('option:selected').val()));
-                temp = booksList.filter(book =>!selectedChange.includes(book.id));
+                temp = booksList.filter(book =>!selected.includes(book.id));
                 unselected = temp.map(book => book.id);
             }
                 $(`#book-${j} option[value=${selected[j]}]`).attr("selected", "selected");
@@ -101,6 +101,9 @@ $(document).ready(function () {
             function(){}).
             done(function(response){
                 console.log(response);
+                if(response == "success!"){
+                    window.location.href= baseURL + "/";
+                }
             });
         }
 

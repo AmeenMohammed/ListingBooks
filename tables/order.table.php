@@ -7,8 +7,6 @@
                 $table->date("purchasetime")->def(date('Y-m-d H:i:s'));
             });
         }
-        public function books() {
-            return $this->has_many_through("Books", "Orders", "book_id", "person_id");
-        }
+
     }
 ?>
