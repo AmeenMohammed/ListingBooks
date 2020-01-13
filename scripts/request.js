@@ -94,15 +94,31 @@ $(document).ready(function () {
             }
         }
         if(flag == false){
-            $("#quantity_err").html("");
+            $(".input_row #quantity_err").each(function(){
+                $(this).html("");
+            });
             $("#name_err").html("");
             $.post(baseURL + "/api/request",{request: 1,
                  quantities: submitted_book_quantities, books: submitted_book_ids, name: name},
-            function(){}).
+            function(){}, "json").
             done(function(response){
-                console.log(response);
-                if(response == "success!"){
+                if(response.status == "success"){
                     window.location.href= baseURL + "/";
+                }else{
+                    for (var key in response[0]) {
+                        if (response[0].hasOwnProperty(key)) {
+                            if(key == 'empty_name' || key == 'valid_name'){
+                                $("#name_err").html(response[0][key]);
+                            }
+                            for(var i = 0; i < Object.keys(response[0]).length; i++){
+                                if(key == ('empty_quantity' + i) || key == ('valid_quantity' + i) ||
+                                key == ('out_of_stock' + i)){
+                                    $(`#book-${i} #quantity_err`).html(response[0][key]);
+                                }
+                            }
+
+                        }
+                    }
                 }
             });
         }
