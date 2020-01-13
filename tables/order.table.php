@@ -1,5 +1,5 @@
 <?php
-    class order extends Stalker_Table
+    class Order extends Stalker_Table
     {
         public function schema() {
             return Stalker_Schema::build( function ($table) {
