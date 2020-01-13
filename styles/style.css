@@ -13,6 +13,9 @@ body {
     width: 300px;
     margin: 0 auto;
 }
+#insert{
+    display: block;
+}
 input[type='text'], .select_stlye,.input_stlye{
     width: 200px;
     border-radius: 2px;

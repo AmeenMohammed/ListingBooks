@@ -2,7 +2,8 @@ $(document).ready(function(){
     baseURL = window.location.protocol + "//" + window.location.host + "/ListingBooks";
 
 
-    $("#insert").click(function(){
+    $('form').on('submit', function(e){
+        e.preventDefault();
         var bookName = $("#book_id").val();
         var quantity = $("#quantity_id").val();
         var flag = false;
